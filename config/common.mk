@@ -105,6 +105,23 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/etc/init.local.rc:root/init.cm.rc
 
+# SMWeatherProvider
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/WeatherProvider/org.cyanogenmod.yahooweatherprovider-1.0-1.apk:system/app/YahooWeatherProvider/YahooWeatherProvider.apk \
+    vendor/cm/prebuilt/WeatherProvider/org.mokee.weatherprovider-1.2-1.apk:system/app/MokeeWeatherProvider/MokeeWeatherProvider.apk \
+    vendor/cm/prebuilt/WeatherProvider/suda.myweatherprovider-1.76-13.apk:system/app/SudaWeatherProvider/SudaWeatherProvider.apk
+
+# ViPER4Android
+ifneq ($(filter armeabi armeabi-v7a,$(SM_CPU_ABI)),)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,vendor/cm/prebuilt/viper/app,system/priv-app) \
+    $(call find-copy-subdir-files,*.so,vendor/cm/prebuilt/viper/lib/armeabi-v7a/soundfx,system/lib/soundfx)
+endif
+
+# Phonelocation!
+PRODUCT_COPY_FILES +=  \
+    vendor/cm/prebuilt/common/media/location/suda-phonelocation.dat:system/media/location/suda-phonelocation.dat
+
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
@@ -146,18 +163,22 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Launcher3 \
     Trebuchet \
-    AudioFX \
+    PhoneLocationProvider \
     CMWallpapers \
     CMFileManager \
     Eleven \
     LockClock \
-    CMUpdater \
     CyanogenSetupWizard \
     CMSettingsProvider \
     ExactCalculator \
     LiveLockScreenService \
     WeatherProvider \
     DataUsageProvider
+
+ifeq ($(filter armeabi armeabi-v7a,$(CM_CPU_ABI)),)
+PRODUCT_PACKAGES += \
+    AudioFX
+endif
 
 # Exchange support
 PRODUCT_PACKAGES += \
