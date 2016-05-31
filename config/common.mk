@@ -105,9 +105,7 @@ PRODUCT_COPY_FILES += \
 
 # SMWeatherProvider
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/WeatherProvider/org.cyanogenmod.yahooweatherprovider-1.0-1.apk:system/app/YahooWeatherProvider/YahooWeatherProvider.apk \
-    vendor/cm/prebuilt/WeatherProvider/org.mokee.weatherprovider-1.2-1.apk:system/app/MokeeWeatherProvider/MokeeWeatherProvider.apk \
-    vendor/cm/prebuilt/WeatherProvider/suda.myweatherprovider-1.76-13.apk:system/app/SudaWeatherProvider/SudaWeatherProvider.apk
+    vendor/cm/prebuilt/WeatherProvider/org.cyanogenmod.yahooweatherprovider-1.0-1.apk:system/app/YahooWeatherProvider/YahooWeatherProvider.apk
 
 # ViPER4Android
 ifneq ($(filter armeabi armeabi-v7a,$(SM_CPU_ABI)),)
