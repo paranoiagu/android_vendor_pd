@@ -108,7 +108,7 @@ PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/WeatherProvider/org.cyanogenmod.yahooweatherprovider-1.0-1.apk:system/app/YahooWeatherProvider/YahooWeatherProvider.apk
 
 # ViPER4Android
-ifneq ($(filter armeabi armeabi-v7a,$(SM_CPU_ABI)),)
+ifneq ($(filter armeabi armeabi-v7a,$(CM_CPU_ABI)),)
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,vendor/cm/prebuilt/viper/app,system/priv-app) \
     $(call find-copy-subdir-files,*.so,vendor/cm/prebuilt/viper/lib/armeabi-v7a/soundfx,system/lib/soundfx)
